@@ -27,10 +27,7 @@ public class HomeServlet extends HttpServlet {
         String requestedURL = request.getRequestURI();
 
         if (username == null) {
-            if (requestedURL.contains("/home")) {
                 response.sendRedirect("login");
-            }
-
         } else {
 
             getServletContext().getRequestDispatcher("/WEB-INF/home.jsp")
