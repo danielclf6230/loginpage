@@ -25,11 +25,12 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String requestedURL = request.getRequestURI();
-        String action = request.getParameter("logout");
+        String action = request.getParameter("action");
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute("username");
 
         if (action != null) {
+            
             session.invalidate();
             request.setAttribute("LogoutMessage", "You have successfully logged out");
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
